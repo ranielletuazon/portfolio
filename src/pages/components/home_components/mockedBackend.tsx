@@ -81,12 +81,12 @@ export default function MockedBackend() {
                             {/* Card Header */}
                             <div className={`flex items-center w-full rounded-t-lg p-4 bg-gradient-to-br ${card.gradientFrom} ${card.gradientTo}`}>
                                 <card.icon className={`size-10 ${card.bgColor} rounded-lg md:p-2 p-2 text-white shadow-md`} />
-                                <h2 className="md:text-lg text-sm font-bold text-white ml-3">{card.title}</h2>
+                                <h2 className="md:text-md text-sm font-bold text-white ml-3">{card.title}</h2>
                             </div>
 
                             {/* Card Body */}
                             <div className="flex flex-col border-gray-700 border-b border-l border-r h-full p-5 rounded-b-lg shadow-md bg-gray-800">
-                                <p className="text-justify text-gray-200 leading-relaxed md:text-base text-sm" dangerouslySetInnerHTML={{ __html: card.description }}>
+                                <p className="text-justify text-gray-200 leading-relaxed md:text-sm text-xs" dangerouslySetInnerHTML={{ __html: card.description }}>
                                 </p>
                             </div>
                         </div>

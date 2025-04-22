@@ -54,7 +54,7 @@ export default function ProfessionalHome() {
         darkMode
             ? "bg-slate-900/70 border-slate-700" 
             : "bg-white/70 border-slate-100"
-    } border-b px-6 py-4 transition-all duration-500 ${
+    } border-b px-6 py-4 transition-all ${
         showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 fade-out-0"
     } theme-transition`;
 
@@ -166,7 +166,7 @@ export default function ProfessionalHome() {
                                 Developer
                             </span>{" "}
                             <span className={`inline-block transition-all duration-700 delay-500 ${showHero ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
-                                & UI Specialist
+                                & UI/UX Specialist
                             </span>
                         </h2>
                         <p className={`${darkMode ? "text-slate-300" : "text-slate-700"} text-lg mb-8 leading-relaxed transition-all duration-700 delay-700 ${showHero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"} theme-transition`}>
