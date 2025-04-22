@@ -1,73 +1,83 @@
 import { ChartLine, MessageCircleMore, Fingerprint, Server, Lightbulb, Database } from "lucide-react";
 
 export default function MockedBackend() {
-    const cards = [
+    
+    interface Card {
+        icon: React.ElementType;
+        gradientFrom: string;
+        gradientTo: string;
+        bgColor: string;
+        title: string;
+        description: string;
+    }
+
+    const cards: Card[] = [
         {
             icon: ChartLine,
-            gradientFrom: "from-red-400",
-            gradientTo: "to-red-600",
-            bgColor: "bg-red-400",
+            gradientFrom: "from-red-500",
+            gradientTo: "to-red-700",
+            bgColor: "bg-red-500",
             title: "Monitoring & Performance Optimization",
-            description: "Setting up logging, monitoring, and optimizing system performance with tools like Grafana, LogRocket, or custom dashboards."
+            description: "Setting up <strong>logging</strong>, <strong>monitoring</strong>, and improving system <strong>performance</strong> through custom solutions and detailed <strong>data analysis</strong>."
         },
         {
             icon: MessageCircleMore,
-            gradientFrom: "from-green-400",
-            gradientTo: "to-green-600",
-            bgColor: "bg-green-400",
+            gradientFrom: "from-green-500",
+            gradientTo: "to-green-700",
+            bgColor: "bg-green-500",
             title: "Real-Time & Scalable Systems",
-            description: "Building chat systems, live updates, and queues using technologies like WebSockets, Firebase Realtime Database, or Socket.IO."
+            description: "Creating <strong>chat systems</strong>, enabling <strong>live updates</strong>, and implementing <strong>message queues</strong> for dynamic, <strong>scalable communication</strong>."
         },
         {
             icon: Fingerprint,
-            gradientFrom: "from-blue-400",
-            gradientTo: "to-blue-600",
-            bgColor: "bg-blue-400",
+            gradientFrom: "from-blue-500",
+            gradientTo: "to-blue-700",
+            bgColor: "bg-blue-500",
             title: "Authentication & Security",
-            description: "Implementing secure login systems with JWT, OAuth, and multi-factor auth. Prioritizing data protection and role-based access."
+            description: "Building secure <strong>login systems</strong> using <strong>token-based authentication</strong>, <strong>multi-factor verification</strong>, and managing <strong>role-based access</strong> to protect sensitive data."
         },
         {
             icon: Server,
-            gradientFrom: "from-yellow-400",
-            gradientTo: "to-yellow-600",
-            bgColor: "bg-yellow-400",
+            gradientFrom: "from-yellow-500",
+            gradientTo: "to-yellow-700",
+            bgColor: "bg-yellow-500",
             title: "Server & Deployment Management",
-            description: "Managing cloud servers, setting up environments, and deploying apps using tools like Docker, Nginx, and cloud platforms (e.g., Vercel, Render, or DigitalOcean)."
+            description: "Handling <strong>cloud server</strong> operations, configuring <strong>deployment environments</strong>, and streamlining <strong>application deployment</strong> processes."
         },
         {
             icon: Lightbulb,
-            gradientFrom: "from-gray-400",
-            gradientTo: "to-gray-600",
-            bgColor: "bg-gray-400",
+            gradientFrom: "from-purple-500",
+            gradientTo: "to-purple-700",
+            bgColor: "bg-purple-500",
             title: "API Development & Integration",
-            description: "Designing and building RESTful and GraphQL APIs, plus integrating third-party services for seamless app functionality."
+            description: "Designing and implementing <strong>RESTful</strong> and <strong>GraphQL APIs</strong>, while seamlessly connecting with <strong>external services</strong> to expand functionality."
         },
         {
             icon: Database,
-            gradientFrom: "from-orange-400",
-            gradientTo: "to-orange-600",
-            bgColor: "bg-orange-400",
+            gradientFrom: "from-orange-500",
+            gradientTo: "to-orange-700",
+            bgColor: "bg-orange-500",
             title: "Database Design & Management",
-            description: "Experienced with relational (PostgreSQL, MySQL) and NoSQL (MongoDB, Firebase) databases, focusing on clean schemas and optimized queries."
+            description: "Proficient in managing both <strong>relational</strong> and <strong>NoSQL databases</strong>, focusing on <strong>clean data structures</strong>, <strong>efficient queries</strong>, and <strong>scalable architecture</strong>."
         }
     ];
 
     return (
         <>
-            {/* Container - keeping original as requested */}
-            <div className="relative flex flex-col w-[80%] bg-[var(--secondary)] h-[75%] p-2 overflow-auto bg-gradient-to-br from-gray-100 to-gray-100 rounded-lg">
+            {/* Container - dark theme optimized */}
+            <div className="relative flex flex-col w-[80%] bg-gray-900 h-[75%] p-2 overflow-auto rounded-lg">
                 {/* Enhanced Header */}
                 <div className="flex flex-col justify-center items-center p-4">
-                    <h1 className="md:text-3xl text-2xl font-bold text-gray-800 mb-2">Backend Specialist</h1>
-                    <p className="md:text-md text-sm font-medium text-gray-600 text-center max-w-2xl">
-                        Expert in a wide range of backend systems. From server management and API integrations to database architecture and performance optimization.
+                    <h1 className="md:text-3xl text-2xl font-bold text-gray-100 mb-2">Backend Specialist</h1>
+                    <p className="md:text-md text-sm font-medium text-gray-300 text-center max-w-2xl">
+                        Expert in a wide range of <strong>backend systems</strong>. From <strong>server management</strong> and <strong>API integrations</strong> to <strong>database architecture</strong> and <strong>performance optimization</strong>.
                     </p>
                 </div>
 
                 {/* Improved Card Grid */}
                 <div className="w-full h-auto flex md:flex-row md:flex-wrap md:gap-4 p-4 md:justify-center items-center justify-start flex-col gap-4">
                     {cards.map((card, index) => (
-                        <div key={index} className="md:w-[400px] md:h-[250px] w-full h-auto flex flex-col rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <div key={index} className="md:w-96 md:h-64 w-full h-auto flex flex-col rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                             {/* Card Header */}
                             <div className={`flex items-center w-full rounded-t-lg p-4 bg-gradient-to-br ${card.gradientFrom} ${card.gradientTo}`}>
                                 <card.icon className={`size-10 ${card.bgColor} rounded-lg md:p-2 p-2 text-white shadow-md`} />
@@ -75,9 +85,8 @@ export default function MockedBackend() {
                             </div>
 
                             {/* Card Body */}
-                            <div className="flex flex-col border-gray-300 border-b border-l border-r h-full p-5 rounded-b-lg shadow-md bg-white">
-                                <p className="text-justify text-gray-700 leading-relaxed md:text-base text-sm">
-                                    {card.description}
+                            <div className="flex flex-col border-gray-700 border-b border-l border-r h-full p-5 rounded-b-lg shadow-md bg-gray-800">
+                                <p className="text-justify text-gray-200 leading-relaxed md:text-base text-sm" dangerouslySetInnerHTML={{ __html: card.description }}>
                                 </p>
                             </div>
                         </div>
