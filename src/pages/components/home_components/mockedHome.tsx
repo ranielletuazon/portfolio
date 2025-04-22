@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Code, Monitor, Layers, Star, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
+import { Skeleton } from "@/components/ui/skeleton"
 import { toast } from 'sonner';
+import './mockedBackend.css';
 
 export default function ProfessionalHome() {
     const [isLoading, setIsLoading] = useState(false);
     const [isAnimated, setIsAnimated] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
     
     // Animation states
     const [showLogo, setShowLogo] = useState(false);
@@ -55,7 +57,7 @@ export default function ProfessionalHome() {
             ? "bg-slate-900/70 border-slate-700" 
             : "bg-white/70 border-slate-100"
     } border-b px-6 py-4 transition-all ${
-        showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 fade-out-0"
+        showNav ? "opacity-100 translate-y-0 fade-in-0" : "opacity-0 -translate-y-10 fade-out-0"
     } theme-transition`;
 
     // Services section classes - removed animation delays from theme transition
@@ -79,13 +81,13 @@ export default function ProfessionalHome() {
     return (
         <div className={containerClasses}>
             {/* Add global theme transition style */}
-            <style tsx global>{`
-                .theme-transition {
-                    transition-property: background-color, background-image, border-color, color, fill, stroke;
-                    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                    transition-duration: 300ms;
-                }
-            `}</style>
+            {!showNav &&
+                <div className="h-full">
+                    <Skeleton className="md:h-16 w-full rounded-lg h-16" />
+
+
+                </div>
+            }
 
             {/* Header / Navigation */}
             <header className={headerClasses}>
@@ -96,7 +98,7 @@ export default function ProfessionalHome() {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-1">
+                    {/* <nav className="hidden md:flex items-center space-x-1">
                         <Button 
                             onClick={handleNavClick} 
                             variant="ghost" 
@@ -125,7 +127,7 @@ export default function ProfessionalHome() {
                         >
                             Together
                         </Button>
-                    </nav>
+                    </nav> */}
 
                     {/* Dark Mode Toggle Button */}
                     <Button 
@@ -160,7 +162,7 @@ export default function ProfessionalHome() {
                     <div className="md:w-1/2 md:pr-12 mb-10 md:mb-0">
                         <h2 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight ${darkMode ? "text-white" : ""} theme-transition`}>
                             <span className={`inline-block transition-all duration-700 delay-100 ${showHero ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
-                                Frontend 
+                                Frontend
                             </span>{" "}
                             <span className={`inline-block bg-gradient-to-r ${darkMode ? "from-indigo-400 to-blue-400" : "from-indigo-600 to-blue-600"} bg-clip-text text-transparent transition-all duration-700 delay-300 ${showHero ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"} theme-transition`}>
                                 Developer

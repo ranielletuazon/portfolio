@@ -9,11 +9,13 @@ import { ArrowDownIcon } from 'lucide-react';
 // Imported Pages
 import MockedBackend from './components/home_components/mockedBackend';
 import MockedHome from './components/home_components/mockedHome';
+import SkillsDisplay from './components/home_components/skillsDisplay';
 
 export default function Home() {
     const textRef = useRef(null);
     const section2Ref = useRef(null);
     const section3Ref = useRef(null);
+    const section4Ref = useRef(null);
     const [isSection1Visible, setIsSection1Visible] = useState(false);
     const [isSection2Visible, setIsSection2Visible] = useState(false);
 
@@ -102,6 +104,14 @@ export default function Home() {
                     className="snap-start h-screen flex justify-center items-center overflow-x-hidden"
                 >
                     <MockedBackend />
+                </div>
+
+                {/* Section 3 - Mini Backend website design*/}
+                <div
+                    ref={section4Ref}
+                    className="snap-start h-screen flex justify-center items-center overflow-x-hidden"
+                >
+                    <SkillsDisplay />
                 </div>
 
             </div>
