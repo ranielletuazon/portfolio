@@ -5,6 +5,7 @@ import './App.css';
 // Pages
 import Home from './pages/Home';
 import Header from './pages/components/Header';
+import Projects from './pages/Projects';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
           </Routes>
         </BrowserRouter>
       </div>
