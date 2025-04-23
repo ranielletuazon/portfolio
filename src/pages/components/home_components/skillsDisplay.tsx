@@ -266,9 +266,9 @@ export default function SkillsDisplay() {
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-full p-4 mb-4">
                     <Info className="h-10 w-10 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-medium text-gray-800 dark:text-white mb-2">No Skill Selected</h3>
+                <h3 className="text-xl font-medium text-gray-800 dark:text-white mb-2">Hey There!</h3>
                 <p className="text-gray-500 dark:text-gray-400 max-w-md">
-                    Select a skill category from the sidebar and choose a specific skill to view detailed information.
+                    Select a skill category from the sidebar and choose a specific skill to view my expertise.
                 </p>
             </div>
         );
