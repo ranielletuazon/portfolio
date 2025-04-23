@@ -40,9 +40,19 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+
+    --dark-primary-text: hsl(0, 0%, 80%);
+    --light-primary-text: hsl(0, 0%, 20%);
+    --dark-secondary-text: hsl(0, 0%, 60%);
+    --dark-secondary-text: hsl(0, 0%, 20%);
+    --dark-background: hsl(0, 0%, 10%);
+    --dark-whitebackground: hsl(0, 0%, 0%);
+    --dark-blackbackground: hsl(0, 0%, 0%);
+    --light-background: hsl(0, 0%, 100%);
+    --light-blackbackground: hsl(0, 0%, 0%);
 }
 
-button {
+button {   
     cursor: pointer;
 }
 
@@ -52,10 +62,6 @@ body{
 
 ::-webkit-scrollbar {
     width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background-image: linear-gradient(to bottom, hsl(0, 0%, 0%), hsl(0, 0%, 2%));
 }
 
 ::-webkit-scrollbar-thumb {
