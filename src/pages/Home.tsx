@@ -66,7 +66,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800" style={{ scrollBehavior: 'smooth' }}>
+            <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
                 {/* Header */}
                 <Header />
 

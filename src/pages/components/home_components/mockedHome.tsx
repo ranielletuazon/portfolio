@@ -45,7 +45,7 @@ export default function ProfessionalHome() {
     };
 
     // Root container classes to apply dark mode - adding theme transition class
-    const containerClasses = `relative flex flex-col w-[80%] ${
+    const containerClasses = `relative flex flex-col w-[80%] shadow-2xl ${
         darkMode 
             ? "bg-slate-900 from-slate-900 to-slate-800 transition-colors duration-300" 
             : "bg-[var(--secondary)] from-blue-50 to-indigo-50 transition-colors duration-300"

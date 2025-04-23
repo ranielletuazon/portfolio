@@ -65,7 +65,7 @@ export default function MockedBackend() {
     return (
         <>
             {/* Container - dark theme optimized */}
-            <div className="relative flex flex-col w-[80%] bg-gray-900 h-[75%] p-2 overflow-auto rounded-lg">
+            <div className="relative flex flex-col w-[80%] bg-gray-900 h-[75%] p-2 overflow-auto rounded-lg shadow-2xl">
                 {/* Enhanced Header */}
                 <div className="flex flex-col justify-center items-center p-4">
                     <h1 className="md:text-3xl text-2xl font-bold text-gray-100 mb-2">Backend Specialist</h1>
