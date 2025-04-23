@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-gradient-to-b from-black to-[#030303] @container w-screen h-screen ">
+      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 @container w-screen h-screen ">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
