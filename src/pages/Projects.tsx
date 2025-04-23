@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 
 // Images
@@ -10,6 +10,8 @@ import disaster from '../pages/assets/projectImages/Screenshot from 2025-04-23 1
 
 export default function Projects() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+    const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
+    const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     interface Project {
         title: string;
@@ -60,12 +62,37 @@ export default function Projects() {
         }
     ];
 
+    // Initialize Intersection Observer to detect when projects are visible
+    useEffect(() => {
+        const observerOptions = {
+            root: null, // use viewport as root
+            rootMargin: '0px',
+            threshold: 0.3, // trigger when 30% of element is visible
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = projectRefs.current.findIndex(ref => ref === entry.target);
+                    if (index !== -1 && !visibleProjects.includes(index)) {
+                        setVisibleProjects(prev => [...prev, index]);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all project elements
+        projectRefs.current.forEach(ref => {
+            if (ref) observer.observe(ref);
+        });
+        
+        return () => observer.disconnect();
+    }, []);
+
     const handleVisitProject = (link?: string | [string, ...string[]]) => {
         if (link) {
             if (typeof link === 'string') {
                 window.open(link, '_blank');
-            } else {
-                window.open(link[0], '_blank');
             }
         }
     };
@@ -80,13 +107,19 @@ export default function Projects() {
                 {projects.map((project, index) => (
                     <div 
                         id={`project-${index}`}
-                        className="snap-start w-full h-screen flex justify-center items-center" 
+                        className="cursor-pointer w-full h-screen flex justify-center items-center snap-start" 
                         key={index}
+                        ref={el => projectRefs.current[index] = el}
                     >
                         <div 
-                            className="w-[80%] h-[75%] bg-slate-800 rounded-lg shadow-xl overflow-hidden relative group"
+                            className={`w-[80%] h-[75%] bg-slate-800 rounded-lg shadow-4xl overflow-hidden relative group transition-all duration-1000 ease-out ${
+                                visibleProjects.includes(index) 
+                                    ? 'opacity-100 translate-y-0' 
+                                    : 'opacity-0 translate-y-20'
+                            }`}
                             onMouseEnter={() => setHoveredProject(index)}
                             onMouseLeave={() => setHoveredProject(null)}
+                            onClick={() => handleVisitProject(project.link)}
                         >
                             {/* Project Background Image */}
                             <div 
@@ -113,7 +146,7 @@ export default function Projects() {
                                         {project.technologies.map((tech, techIndex) => (
                                             <span 
                                                 key={techIndex} 
-                                                className="px-3 py-1 bg-blue-900/50 text-blue-100 rounded-md text-sm backdrop-blur-sm"
+                                                className="px-3 py-1 bg-slate-900/50 text-blue-100 rounded-md text-sm backdrop-blur-sm"
                                             >
                                                 {tech}
                                             </span>
@@ -124,8 +157,7 @@ export default function Projects() {
                                 {/* Visit Button */}
                                 {project.link && (
                                     <button 
-                                        onClick={() => handleVisitProject(project.link)}
-                                        className="self-start px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center"
+                                        className="self-start px-6 py-2 bg-slate-800 hover:bg-blue-700 text-white rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center hover:bg-blue-600"
                                     >
                                         Visit Project
                                         <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
