@@ -89,8 +89,10 @@ export default function Home() {
                     ref={section2Ref}
                     className="snap-start h-screen flex justify-center items-center overflow-x-hidden"
                 >
-                    <div className={`w-full h-full transition-opacity duration-500 flex justify-center items-center ${visibleSections.section2 ? 'opacity-100' : 'opacity-0'}`}>
-                        {visibleSections.section2 && <MockedHome immediateStart={true} />}
+                    <div className={`w-full h-full flex justify-center items-center transition-all duration-1000 ease-out ${visibleSections.section2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                        }`}>
+
+                        {visibleSections.section2 && <MockedHome/>}
                     </div>
                 </div>
 
@@ -99,7 +101,8 @@ export default function Home() {
                     ref={section3Ref}
                     className="snap-start h-screen flex justify-center items-center overflow-x-hidden"
                 >
-                    <div className={`w-full h-full transition-opacity duration-500 flex justify-center items-center ${visibleSections.section3 ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={`w-full h-full flex justify-center items-center transition-all duration-1000 ease-out ${visibleSections.section3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                        }`}>
                         <MockedBackend />
                     </div>
                 </div>
@@ -109,7 +112,8 @@ export default function Home() {
                     ref={section4Ref}
                     className="snap-start h-screen flex justify-center items-center overflow-x-hidden"
                 >
-                    <div className={`w-full h-full transition-opacity duration-500 flex justify-center items-center ${visibleSections.section4 ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={`w-full h-full flex justify-center items-center transition-all duration-1000 ease-out ${visibleSections.section4 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                        }`}>
                         <SkillsDisplay />
                     </div>
                 </div>
