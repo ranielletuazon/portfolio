@@ -29,7 +29,6 @@ export default function Header() {
                     <div className="flex w-full flex justify-center space-x-8 items-center text-base text-[var(--secondary)]">
                         <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Home</button>
                         <button onClick={() => navigate('/projects')} className="hover:text-white transition-colors">Projects</button>
-                        <button onClick={() => navigate('/contact')} className="hover:text-white transition-colors">Contact</button>
                     </div>            
                 </div>
             </div>
